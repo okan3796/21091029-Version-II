@@ -1,27 +1,41 @@
-import React from 'react';
-import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { View, ImageBackground, TextInput, Button, StyleSheet } from 'react-native';
 
-export default function HomeScreen({ navigation }) {
+export default function ReasonScreen({ navigation }) {
+  const [reason, setReason] = useState('');
+  const [name, setName] = useState('');
+
   return (
-    <View style={styles.container}>
-      <Image source={require('../assets/home.png')} style={styles.background} />
-      <TouchableOpacity style={styles.selectArea} onPress={() => navigation.navigate('Neighborhood')} />
-    </View>
+    <ImageBackground source={require('../../assets/neden.png')} style={styles.container} resizeMode="contain">
+      <View style={styles.formContainer}>
+        <TextInput
+          style={styles.input}
+          placeholder="Neden bu tesisi seçtiniz?"
+          value={reason}
+          onChangeText={setReason}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Ad Soyad"
+          value={name}
+          onChangeText={setName}
+        />
+        <Button title="Gönder" onPress={() => navigation.navigate('Thanks')} />
+      </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
-  background: {
-    width: '100%',
-    height: '100%',
-    resizeMode: 'cover',
+  container: { flex: 1, justifyContent: 'center' },
+  formContainer: {
+    paddingHorizontal: 20,
+    marginTop: 300
   },
-  selectArea: {
-    position: 'absolute',
-    left: 100, // adjust according to your design
-    top: 450,
-    width: 200,
-    height: 60,
-  },
+  input: {
+    backgroundColor: '#fff',
+    padding: 10,
+    marginVertical: 10,
+    borderRadius: 10
+  }
 });
