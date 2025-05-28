@@ -10,7 +10,7 @@ export default function ReasonScreen({ navigation }) {
       <View style={styles.formContainer}>
         <TextInput
           style={styles.input}
-          placeholder="Neden bu tesisi seçtiniz?"
+          placeholder="Neden bu tesisi, seçtiniz?"
           value={reason}
           onChangeText={setReason}
         />
