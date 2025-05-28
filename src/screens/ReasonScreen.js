@@ -1,36 +1,83 @@
 import React, { useState } from 'react';
-import { View, Image, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
 
-export default function ReasonScreen({ navigation }) {
-  const [text1, setText1] = useState('');
-  const [text2, setText2] = useState('');
+const ReasonScreen = ({ navigation }) => {
+  const [reason, setReason] = useState('');
+  const [name, setName] = useState('');
+
+  const handleSubmit = () => {
+    if (reason && name) {
+      navigation.navigate('Thanks');
+    } else {
+      alert('Lütfen tüm alanları doldurun.');
+    }
+  };
 
   return (
     <View style={styles.container}>
-      <Image source={require('../assets/neden.png')} style={styles.background} />
+      <Image source={require('../../assets/neden.png')} style={styles.background} />
+
       <TextInput
-        value={text1}
-        onChangeText={setText1}
-        style={styles.input1}
-        placeholder="Neden 1"
-        placeholderTextColor="#999"
+        style={styles.inputReason}
+        placeholder="Neden bu tesisi seçtiniz?"
+        placeholderTextColor="#555"
+        multiline
+        value={reason}
+        onChangeText={setReason}
       />
+
       <TextInput
-        value={text2}
-        onChangeText={setText2}
-        style={styles.input2}
-        placeholder="Neden 2"
-        placeholderTextColor="#999"
+        style={styles.inputName}
+        placeholder="Ad Soyad"
+        placeholderTextColor="#555"
+        value={name}
+        onChangeText={setName}
       />
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Thanks')} />
+
+      <TouchableOpacity onPress={handleSubmit} style={styles.buttonArea} />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
-  background: { width: '100%', height: '100%', resizeMode: 'cover' },
-  input1: { position: 'absolute', left: 50, top: 300, width: 300, height: 50, color: 'black' },
-  input2: { position: 'absolute', left: 50, top: 370, width: 300, height: 50, color: 'black' },
-  button: { position: 'absolute', left: 100, top: 450, width: 200, height: 60 },
+  container: {
+    flex: 1,
+  },
+  background: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+  },
+  inputReason: {
+    position: 'absolute',
+    top: '30%', // ← biraz daha yukarı alındı
+    left: '10%',
+    width: '80%',
+    height: 80,
+    padding: 10,
+    backgroundColor: '#ffffffcc',
+    borderRadius: 10,
+    fontSize: 16,
+  },
+  inputName: {
+    position: 'absolute',
+    top: '50%', // ← aynı oranda aşağı kaydırıldı
+    left: '10%',
+    width: '80%',
+    height: 50,
+    padding: 10,
+    backgroundColor: '#ffffffcc',
+    borderRadius: 10,
+    fontSize: 16,
+  },
+  buttonArea: {
+    position: 'absolute',
+    bottom: '10%',
+    left: '25%',
+    width: '50%',
+    height: 50,
+    backgroundColor: 'transparent', // PNG’deki butonun üstüne denk gelsin
+  },
 });
+
+export default ReasonScreen;
