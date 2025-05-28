@@ -24,6 +24,6 @@ export default function App() {
         <Stack.Screen name="Reason" component={ReasonScreen} />
         <Stack.Screen name="Thanks" component={ThanksScreen} />
       </Stack.Navigator>
-    </NavigationContainer>
+    </NavigationContainer> //güncel abi
   );
 }
