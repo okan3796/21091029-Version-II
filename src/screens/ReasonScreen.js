@@ -1,56 +1,36 @@
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet, TouchableOpacity, Text, KeyboardAvoidingView, Platform } from 'react-native';
+import { View, Image, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 
 export default function ReasonScreen({ navigation }) {
-  const [reason, setReason] = useState('');
-  const [name, setName] = useState('');
-
-  const handleSubmit = () => {
-    if (reason && name) {
-      navigation.navigate('Thanks');
-    } else {
-      alert('Lütfen tüm alanları doldurun');
-    }
-  };
+  const [text1, setText1] = useState('');
+  const [text2, setText2] = useState('');
 
   return (
-    <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : null}>
+    <View style={styles.container}>
+      <Image source={require('../assets/neden.png')} style={styles.background} />
       <TextInput
-        placeholder="Neden bu tesisi seçtiniz?"
-        style={styles.input}
-        multiline
-        numberOfLines={4}
-        onChangeText={setReason}
-        value={reason}
+        value={text1}
+        onChangeText={setText1}
+        style={styles.input1}
+        placeholder="Neden 1"
+        placeholderTextColor="#999"
       />
       <TextInput
-        placeholder="Ad Soyad"
-        style={styles.input}
-        onChangeText={setName}
-        value={name}
+        value={text2}
+        onChangeText={setText2}
+        style={styles.input2}
+        placeholder="Neden 2"
+        placeholderTextColor="#999"
       />
-      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-        <Text style={styles.buttonText}>Gönder</Text>
-      </TouchableOpacity>
-    </KeyboardAvoidingView>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Thanks')} />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20, justifyContent: 'center', backgroundColor: '#fff' },
-  input: {
-    borderWidth: 1,
-    borderColor: '#999',
-    borderRadius: 10,
-    padding: 15,
-    marginBottom: 20,
-    backgroundColor: '#f9f9f9',
-  },
-  button: {
-    backgroundColor: '#2196f3',
-    padding: 15,
-    borderRadius: 10,
-    alignItems: 'center',
-  },
-  buttonText: { color: '#fff', fontSize: 16 },
+  container: { flex: 1 },
+  background: { width: '100%', height: '100%', resizeMode: 'cover' },
+  input1: { position: 'absolute', left: 50, top: 300, width: 300, height: 50, color: 'black' },
+  input2: { position: 'absolute', left: 50, top: 370, width: 300, height: 50, color: 'black' },
+  button: { position: 'absolute', left: 100, top: 450, width: 200, height: 60 },
 });
