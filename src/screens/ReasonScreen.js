@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { View, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
 
 const ReasonScreen = ({ navigation }) => {
   const [reason, setReason] = useState('');
@@ -50,23 +50,23 @@ const styles = StyleSheet.create({
   },
   inputReason: {
     position: 'absolute',
-    top: '30%', // ← biraz daha yukarı alındı
+    top: '22%', // yukarı taşındı
     left: '10%',
     width: '80%',
     height: 80,
     padding: 10,
-    backgroundColor: '#ffffffcc',
+    backgroundColor: 'transparent', // tamamen şeffaf
     borderRadius: 10,
     fontSize: 16,
   },
   inputName: {
     position: 'absolute',
-    top: '50%', // ← aynı oranda aşağı kaydırıldı
-    left: '10%',
+    top: '58%', // aşağı kaydırıldı
+    left: '12%',
     width: '80%',
     height: 50,
     padding: 10,
-    backgroundColor: '#ffffffcc',
+    backgroundColor: 'transparent', // tamamen şeffaf
     borderRadius: 10,
     fontSize: 16,
   },
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     left: '25%',
     width: '50%',
     height: 50,
-    backgroundColor: 'transparent', // PNG’deki butonun üstüne denk gelsin
+    backgroundColor: 'transparent',
   },
 });
 

@@ -5,10 +5,10 @@ export default function NeighborhoodScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Image source={require('../assets/mahalle.png')} style={styles.background} />
-      <TouchableOpacity style={styles.mahalle1} onPress={() => navigation.navigate('Facilities')} />
-      <TouchableOpacity style={styles.mahalle2} onPress={() => navigation.navigate('Facilities')} />
-      <TouchableOpacity style={styles.mahalle3} onPress={() => navigation.navigate('Facilities')} />
-      <TouchableOpacity style={styles.mahalle4} onPress={() => navigation.navigate('Facilities')} />
+      <TouchableOpacity style={styles.mahalle1} onPress={() => navigation.navigate('Facility')} />
+      <TouchableOpacity style={styles.mahalle2} onPress={() => navigation.navigate('Facility')} />
+      <TouchableOpacity style={styles.mahalle3} onPress={() => navigation.navigate('Facility')} />
+      <TouchableOpacity style={styles.mahalle4} onPress={() => navigation.navigate('Facility')} />
     </View>
   );
 }
