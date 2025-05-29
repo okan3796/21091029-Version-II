@@ -1,12 +1,18 @@
 // HomeScreen.js
 import React from 'react';
-import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
+import Button from '../components/atoms/Button';
 
 export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Image source={require('../../assets/home.png')} style={styles.background} />
-      <TouchableOpacity style={styles.selectArea} onPress={() => navigation.navigate('Neighborhood')} />
+      
+      <Button
+        title=""
+        style={styles.buttonStyle}
+        onPress={() => navigation.navigate('Neighborhood')}
+      />
     </View>
   );
 }
@@ -18,11 +24,12 @@ const styles = StyleSheet.create({
     height: '100%',
     resizeMode: 'cover',
   },
-  selectArea: {
+  buttonStyle: {
     position: 'absolute',
-    left: 100, 
+    left: 100,
     top: 750,
     width: 250,
     height: 60,
+    justifyContent: 'center',
   },
 });
