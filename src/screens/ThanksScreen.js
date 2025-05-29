@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+ import React, { useEffect, useState } from 'react';
 import { View, Image, StyleSheet, Text, ActivityIndicator } from 'react-native';
 
 export default function ThanksScreen() {

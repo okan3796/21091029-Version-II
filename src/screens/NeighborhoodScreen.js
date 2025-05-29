@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import { View, Image, StyleSheet, TouchableOpacity, TextInput, FlatList, Text } from 'react-native';
 
+// Global state için context'i import et
+import { useAppContext } from '../context/AppContext';
+
 const neighborhoods = ['Feriköy', 'Fulya', 'Halaskargazi', 'Harbiye'];
 
 export default function NeighborhoodScreen({ navigation }) {
   const [search, setSearch] = useState('');
   const [filtered, setFiltered] = useState([]);
+
+  // Global state'den dispatch fonksiyonunu alıyoruz
+  const { dispatch } = useAppContext();
 
   const handleSearch = (text) => {
     setSearch(text);
@@ -22,7 +28,12 @@ export default function NeighborhoodScreen({ navigation }) {
   const handleSelect = (name) => {
     setSearch(name);
     setFiltered([]);
-    navigation.navigate('Facility'); // mahalle adı istenirse burada parametreyle de yollanabilir
+
+    // Global state'e seçilen mahalleyi kaydet
+    dispatch({ type: 'SET_NEIGHBORHOOD', payload: name });
+
+    // Sonraki sayfaya geçiş
+    navigation.navigate('Facility');
   };
 
   return (
@@ -31,6 +42,8 @@ export default function NeighborhoodScreen({ navigation }) {
 
       <TextInput
         style={styles.searchInput}
+        placeholder=""
+        placeholderTextColor="#aaa"
         value={search}
         onChangeText={handleSearch}
       />
@@ -39,6 +52,7 @@ export default function NeighborhoodScreen({ navigation }) {
         <FlatList
           data={filtered}
           keyExtractor={(item, index) => index.toString()}
+          style={styles.listContainer}
           renderItem={({ item }) => (
             <TouchableOpacity
               style={styles.listItem}
@@ -60,42 +74,75 @@ export default function NeighborhoodScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff', // Arka plan beyaz, istersen değiştir
+  },
   background: {
     position: 'absolute',
     width: '100%',
     height: '100%',
     resizeMode: 'cover',
   },
-searchInput: {
-  marginTop: 100,
-  marginLeft: 60,
-  width: '60%', // genişlik azaltıldı, daha küçük görünecek
-  backgroundColor: 'rgba(0,0,0,0)', // tamamen şeffaf arka plan
-  paddingHorizontal: 8,
-  paddingVertical: 6,
-  fontSize: 15,
-  color: '#fff', // metin beyaz, görünür kalması için
-},
-
-listItem: {
-  backgroundColor: 'white', // arka plan beyaz
-  marginHorizontal: 20,
-  marginTop: 10,
-  padding: 10,
-  borderRadius: 8,
-  elevation: 2, // Android için hafif gölge efekti
-  shadowColor: '#000', // iOS için gölge
-  shadowOffset: { width: 0, height: 1 },
-  shadowOpacity: 0.1,
-  shadowRadius: 2,
-},
-
+  searchInput: {
+    marginTop: 100,
+    left: 45,
+    marginHorizontal: 20,
+    backgroundColor: 'transparent',
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    fontSize: 16,
+    borderRadius: 8,
+    color: '#000',
+    elevation: 2,
+  },
+  listContainer: {
+    marginHorizontal: 20,
+    marginTop: 10,
+    maxHeight: 150,
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    elevation: 3,
+  },
+  listItem: {
+    padding: 12,
+    borderBottomColor: '#ddd',
+    borderBottomWidth: 1,
+  },
   listText: {
     fontSize: 16,
+    color: '#333',
   },
-  mahalle1: { position: 'absolute', left: 50, top: 300, width: 100, height: 100 },
-  mahalle2: { position: 'absolute', left: 200, top: 300, width: 100, height: 100 },
-  mahalle3: { position: 'absolute', left: 50, top: 450, width: 100, height: 100 },
-  mahalle4: { position: 'absolute', left: 200, top: 450, width: 100, height: 100 },
+  mahalle1: {
+    position: 'absolute',
+    left: 50,
+    top: 300,
+    width: 100,
+    height: 100,
+    backgroundColor: 'transparent',
+  },
+  mahalle2: {
+    position: 'absolute',
+    left: 200,
+    top: 300,
+    width: 100,
+    height: 100,
+    backgroundColor: 'transparent',
+  },
+  mahalle3: {
+    position: 'absolute',
+    left: 50,
+    top: 450,
+    width: 100,
+    height: 100,
+    backgroundColor: 'transparent',
+  },
+  mahalle4: {
+    position: 'absolute',
+    left: 200,
+    top: 450,
+    width: 100,
+    height: 100,
+    backgroundColor: 'transparent',
+  },
 });

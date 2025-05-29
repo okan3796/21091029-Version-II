@@ -1,7 +1,7 @@
 // HomeScreen.js
 import React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
-import Button from '../components/atoms/Button';
+import Button from '../button/atom/Button';
 
 export default function HomeScreen({ navigation }) {
   return (
