@@ -4,7 +4,7 @@ import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 export default function FacilityScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Image source={require('../assets/tesis.png')} style={styles.background} />
+      <Image source={require('../../assets/tesis.png')} style={styles.background} />
       <TouchableOpacity style={styles.tesis1} onPress={() => navigation.navigate('Reason')} />
       <TouchableOpacity style={styles.tesis2} onPress={() => navigation.navigate('Reason')} />
       <TouchableOpacity style={styles.tesis3} onPress={() => navigation.navigate('Reason')} />

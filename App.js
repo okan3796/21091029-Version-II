@@ -3,11 +3,11 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import HomeScreen from './HomeScreen';
-import NeighborhoodScreen from './NeighborhoodScreen';
-import FacilityScreen from './FacilityScreen';
-import ReasonScreen from './ReasonScreen';
-import ThanksScreen from './ThanksScreen';
+import HomeScreen from './src/screens/HomeScreen';
+import NeighborhoodScreen from './src/screens/NeighborhoodScreen';
+import FacilityScreen from './src/screens/FacilityScreen';
+import ReasonScreen from './src/screens/ReasonScreen';
+import ThanksScreen from './src/screens/ThanksScreen';
 
 const Stack = createStackNavigator();
 

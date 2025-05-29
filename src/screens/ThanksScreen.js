@@ -4,7 +4,7 @@ import { View, Image, StyleSheet } from 'react-native';
 export default function ThanksScreen() {
   return (
     <View style={styles.container}>
-      <Image source={require('../assets/thanks.png')} style={styles.background} />
+      <Image source={require('../../assets/tsk.png')} style={styles.background} />
     </View>
   );
 }
