@@ -20,9 +20,9 @@ const styles = StyleSheet.create({
   },
   selectArea: {
     position: 'absolute',
-    left: 100, // adjust according to your design
-    top: 450,
-    width: 200,
+    left: 100, 
+    top: 750,
+    width: 250,
     height: 60,
   },
 });

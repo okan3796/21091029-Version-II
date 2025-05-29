@@ -50,8 +50,8 @@ const styles = StyleSheet.create({
   },
   inputReason: {
     position: 'absolute',
-    top: '22%', // yukarı taşındı
-    left: '10%',
+    top: '24%', // yukarı taşındı
+    left: '9%',
     width: '80%',
     height: 80,
     padding: 10,
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   },
   inputName: {
     position: 'absolute',
-    top: '58%', // aşağı kaydırıldı
+    top: '59%', // aşağı kaydırıldı
     left: '12%',
     width: '80%',
     height: 50,
@@ -72,8 +72,8 @@ const styles = StyleSheet.create({
   },
   buttonArea: {
     position: 'absolute',
-    bottom: '10%',
-    left: '25%',
+    bottom: '15%',
+    left: '20%',
     width: '50%',
     height: 50,
     backgroundColor: 'transparent',
