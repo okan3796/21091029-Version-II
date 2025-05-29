@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import Footer from '../components/Footer';
 
+
 const ReasonScreen = ({ navigation }) => {
   const [reason, setReason] = useState('');
   const [name, setName] = useState('');

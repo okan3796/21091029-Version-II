@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Image, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { useAppContext } from '../context/AppContext';
 
 export default function FacilityScreen({ navigation }) {
@@ -9,15 +10,34 @@ export default function FacilityScreen({ navigation }) {
     <View style={styles.container}>
       <Image source={require('../../assets/tesis.png')} style={styles.background} />
 
-      <Text style={{ color: 'white', fontSize: 18, margin: 10 }}>
+      <Text style={styles.title}>
         Seçilen Mahalle: {state.selectedNeighborhood || 'Henüz seçilmedi'}
       </Text>
 
-      <TouchableOpacity style={styles.tesis1} onPress={() => navigation.navigate('Reason')} />
-      <TouchableOpacity style={styles.tesis2} onPress={() => navigation.navigate('Reason')} />
-      <TouchableOpacity style={styles.tesis3} onPress={() => navigation.navigate('Reason')} />
-      <TouchableOpacity style={styles.tesis4} onPress={() => navigation.navigate('Reason')} />
-      <TouchableOpacity style={styles.tesis5} onPress={() => navigation.navigate('Reason')} />
+   <TouchableOpacity style={[styles.tesis, { top: 180 }]} onPress={() => navigation.navigate('Reason')}>
+  <View style={styles.spacer} />
+  <Ionicons name="leaf" size={30} color="white" />
+</TouchableOpacity>
+
+      <TouchableOpacity style={[styles.tesis, { top: 280 }]} onPress={() => navigation.navigate('Reason')}>
+        <View style={styles.spacer} />
+        <Ionicons name="book" size={30} color="white" />
+      </TouchableOpacity>
+
+      <TouchableOpacity style={[styles.tesis, { top: 390 }]} onPress={() => navigation.navigate('Reason')}>
+        <View style={styles.spacer} />
+        <Ionicons name="restaurant" size={30} color="white" />
+      </TouchableOpacity>
+
+      <TouchableOpacity style={[styles.tesis, { top: 490 }]} onPress={() => navigation.navigate('Reason')}>
+        <View style={styles.spacer} />
+        <Ionicons name="film" size={30} color="white" />
+      </TouchableOpacity>
+
+      <TouchableOpacity style={[styles.tesis, { top: 600 }]} onPress={() => navigation.navigate('Reason')}>
+        <View style={styles.spacer} />
+        <Ionicons name="cafe" size={30} color="white" />
+      </TouchableOpacity>
     </View>
   );
 }
@@ -25,9 +45,19 @@ export default function FacilityScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: { flex: 1 },
   background: { width: '100%', height: '100%', resizeMode: 'cover' },
-  tesis1: { position: 'absolute', left: 50, top: 200, width: 300, height: 50 },
-  tesis2: { position: 'absolute', left: 50, top: 300, width: 300, height: 50 },
-  tesis3: { position: 'absolute', left: 50, top: 390, width: 300, height: 50 },
-  tesis4: { position: 'absolute', left: 50, top: 460, width: 300, height: 50 },
-  tesis5: { position: 'absolute', left: 50, top: 600, width: 300, height: 50 },
+  title: { color: 'white', fontSize: 18, margin: 10 },
+  tesis: {
+    position: 'absolute',
+    left: 50,
+    top: 200,
+    width: 300,
+    height: 50,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 10,
+  },
+  spacer: {
+    flex: 1,
+  },
 });
