@@ -20,10 +20,9 @@ export default function ThanksScreen() {
 
   return (
     <View style={styles.container}>
-      {/* Arka plan görseli */}
+ 
       <Image source={require('../../assets/tsk.png')} style={styles.background} />
 
-      {/* İçerik kutusu en altta */}
       <View style={styles.bottomBox}>
         {loading ? (
           <ActivityIndicator size="large" color="#000" />

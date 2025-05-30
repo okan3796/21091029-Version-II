@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, Image, StyleSheet, TouchableOpacity, TextInput, FlatList, Text } from 'react-native';
 
-// Global state için context'i import et
 import { useAppContext } from '../context/AppContext';
 
 const neighborhoods = ['Feriköy', 'Fulya', 'Halaskargazi', 'Harbiye'];
@@ -10,7 +9,6 @@ export default function NeighborhoodScreen({ navigation }) {
   const [search, setSearch] = useState('');
   const [filtered, setFiltered] = useState([]);
 
-  // Global state'den dispatch fonksiyonunu alıyoruz
   const { dispatch } = useAppContext();
 
   const handleSearch = (text) => {
@@ -29,10 +27,8 @@ export default function NeighborhoodScreen({ navigation }) {
     setSearch(name);
     setFiltered([]);
 
-    // Global state'e seçilen mahalleyi kaydet
     dispatch({ type: 'SET_NEIGHBORHOOD', payload: name });
 
-    // Sonraki sayfaya geçiş
     navigation.navigate('Facility');
   };
 
@@ -76,7 +72,7 @@ export default function NeighborhoodScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff', // Arka plan beyaz, istersen değiştir
+    backgroundColor: '#fff', 
   },
   background: {
     position: 'absolute',
