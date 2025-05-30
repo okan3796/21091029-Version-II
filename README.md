@@ -15,7 +15,7 @@ Uygulama 5 ekrandan oluşmaktadır:
 1. **Ana Sayfa** – Başlangıç görseli ve yönlendirme butonu içerir.  
 2. **Mahalle Seçim Ekranı** – Harita ve arama çubuğu ile mahalle seçimi yapılır.  
 3. **Tesis Seçim Ekranı** – Seçilen mahalleye göre tesis ikonları üzerinden seçim yapılır.  
-4. **Neden Ekranı** – Kullanıcıdan tesis tercihiyle ilgili neden ve ad-soyad bilgisi alınır.  
+4. **Neden Ekranı** – Kullanıcıdan tesis tercihiyle ilgili neden ve ad-soyad bilgisi alınır. Bilgi girilmeszse alert veriyor.
 5. **Teşekkür Ekranı** – API'den ülke bilgileri çekilerek geri bildirim gösterilir.Türkiyenin geleceğine dair faydalı bir katkı yaptıkları hatırlatılır.
 
 ## Kullanılan Teknolojiler
@@ -52,5 +52,7 @@ Footer.js – Tüm ekranlarda sabit alt bilgi
 AppContext.js – Global state için context yönetimi
 
 Button.js – Özel buton bileşeni
+
+## uygulama kullanım videosu: https://www.youtube.com/shorts/wb0bp23Jr1M
 
 ## -- Mobil programlama dersi için hazırlanmıştır 21091029 Okan Yılmaz
